@@ -1,27 +1,52 @@
+use std::ascii;
 
-use std::ascii::StrAsciiExt;
-
-fn to_lower_case(s: ~str)
+/* 
+ * Simplified string manipulation
+ *
+ *
+ *
+ */
+pub trait String
 {
-  return ??
+  /*
+   * Convert to lower case
+   *
+   * @param s string to convert
+   * @return string
+   */
+  fn to_lower_case(s: ~str)-> ~str;
 }
 
-fn to_upper_case(s: ~str)
-{
-  return ??
-}
 
-fn to_title_case(s: ~str)
+impl String for ~str
 {
-  return ??
-}
+  #[inline]
+  fn to_lower_case(s: ~str)-> ~str
+  {
+    return s.to_ascii().to_lower()
+  }
 
-fn to_camel_case(s: ~str)
-{
-  return ??
-}
-
-fn to_underscore_case(s: ~str)
-{
-  return ??
+  #[inline]
+  impl to_upper_case(s: ~str)-> ~str
+  {
+    return s.to_ascii().to_upper()
+  } 
+
+  #[inline]
+  fn to_title_case(s: ~str)
+  {
+    return ??
+  } 
+
+  #[inline]
+  fn to_camel_case(s: ~str)
+  {
+    return ??
+  }
+  
+  #[inline]
+  fn to_underscore_case(s: ~str)
+  {
+    return ??
+  }
 }
